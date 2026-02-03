@@ -1,0 +1,48 @@
+import type { IProduct } from '../model'
+
+export const MOCK_PRODUCTS: IProduct[] = [
+  {
+    id: '1',
+    title: 'Предохранитель Круглый 40A (36VDC) пласт. (уп. по 50 шт)',
+    price: 10000,
+    oldPrice: 15000,
+    discount: 33,
+    rating: 4.0,
+    stock: 10,
+    imageUrl: null,
+  },
+  { id: '2', title: 'Предохранитель Плоский 20A (24VDC)', price: 420, oldPrice: 600, discount: 30, rating: 3.5, stock: 21, imageUrl: null },
+  {
+    id: '3',
+    title: 'Предохранитель Мини 10A (12VDC), блистер 10 шт',
+    price: 350,
+    oldPrice: 480,
+    discount: 27,
+    rating: 4.5,
+    stock: 14,
+    imageUrl: null,
+  },
+  { id: '4', title: 'Предохранитель Круглый 60A (48VDC)', price: 13500, oldPrice: 16500, discount: 18, rating: 4.0, stock: 6, imageUrl: null },
+  {
+    id: '5',
+    title: 'Предохранитель Круглый 40A (36VDC) пласт. (уп. по 50 шт)',
+    price: 10000,
+    oldPrice: 15000,
+    discount: 33,
+    rating: 4.0,
+    stock: 10,
+    imageUrl: null,
+  },
+  { id: '6', title: 'Предохранитель Плоский 30A (24VDC)', price: 590, oldPrice: 770, discount: 23, rating: 4.0, stock: 7, imageUrl: null },
+  { id: '7', title: 'Предохранитель Мини 7.5A (12VDC)', price: 220, oldPrice: 300, discount: 27, rating: 3.0, stock: 35, imageUrl: null },
+  {
+    id: '8',
+    title: 'Предохранитель Круглый 50A (36VDC) пласт. (уп. по 50 шт)',
+    price: 11500,
+    oldPrice: 15000,
+    discount: 23,
+    rating: 4.0,
+    stock: 10,
+    imageUrl: null,
+  },
+]

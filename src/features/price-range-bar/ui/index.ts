@@ -1,0 +1,1 @@
+export { PriceRangeBarFeature } from './PriceRangeBarFeature'

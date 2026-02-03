@@ -1,0 +1,1 @@
+export { renderPrice } from './renderPrice'

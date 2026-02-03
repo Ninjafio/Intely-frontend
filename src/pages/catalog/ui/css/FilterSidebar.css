@@ -1,0 +1,233 @@
+.sidebar-container {
+  width: 240px;
+  flex-shrink: 0;
+}
+.sidebar-container_mini,
+.sidebar-container_modal {
+  display: none;
+}
+
+.sidebar-container p {
+  color: rgba(112, 112, 112, 1);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.sidebar-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #141414;
+  margin-bottom: 48px;
+}
+
+.sidebar-section-large {
+  margin-bottom: 40px;
+}
+
+.sidebar-section {
+  margin-bottom: 24px;
+}
+
+.accordion-trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: #141414;
+  font-size: 18px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.chevron-svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s;
+}
+
+.chevron-svg.rotated {
+  transform: rotate(180deg);
+}
+
+.price-box {
+  margin-top: 16px;
+}
+
+.price-inputs-row {
+  display: flex;
+  margin-top: 16px;
+  justify-content: space-between;
+}
+
+.sidebar-input {
+  height: 41px;
+  border-radius: 4px;
+  background-color: #ededed;
+  border: none;
+  padding: 0 12px;
+  color: #141414;
+  outline: none;
+}
+
+.input_wrapper {
+  position: relative;
+}
+
+.input_wrapper::after {
+  content: '₽';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #141414; /* Цвет значка */
+  font-size: 16px; /* Размер значка */
+  pointer-events: none; /* Гарантирует, что клик по значку не помешает фокусу на инпуте */
+}
+
+.input-half {
+  max-width: 100px;
+  width: 100%;
+}
+
+.search-box {
+  margin-top: 12px;
+}
+
+.search-wrapper {
+  position: relative;
+  display: block;
+}
+
+.search-input {
+  width: 100%;
+  padding-left: 40px;
+  font-size: 16px;
+}
+
+.search-icon-pos {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+}
+
+.categories-scroll-list {
+  margin-top: 16px;
+  max-height: 360px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+/* Эквивалент space-y-3 */
+.categories-scroll-list > * + * {
+  margin-top: 12px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  accent-color: #141414;
+}
+
+.checkbox-text {
+  font-size: 16px;
+  color: #141414;
+}
+
+.reset-filters-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: 1px solid #141414;
+  color: #141414;
+  font-size: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sidebar-container_modal {
+  position: absolute;
+  z-index: 1000;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 36px;
+  bottom: 0;
+}
+
+.sidebar-container_mini {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.flex__wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.open-filters__btn {
+  background-image: url('/public/filter.svg');
+  width: 36px;
+  height: 36px;
+}
+
+.flex__modal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.close__modal {
+  background-image: url('/public/close.svg');
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 767px) {
+  .search-box {
+    margin-top: 0px;
+    width: 80%;
+  }
+  .sidebar-container {
+    display: none;
+  }
+  .sidebar-container_mini {
+    display: flex;
+  }
+  .sidebar-title {
+    margin-bottom: 0px;
+  }
+  .sidebar-input {
+    background-color: #fff;
+    padding-right: 0px;
+  }
+}
