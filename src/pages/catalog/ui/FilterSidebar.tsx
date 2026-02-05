@@ -1,4 +1,4 @@
-import { useId, useState } from 'react'
+import { useEffect, useId, useState } from 'react'
 import { CATEGORIES } from '../config'
 import type { IFilterSidebarProps } from '../model'
 import { PriceRangeBarFeature } from '@features/price-range-bar'
@@ -10,6 +10,14 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
   const [openPrice, setOpenPrice] = useState(true)
   const [isOpenModal, setIsOpenModal] = useState(false)
 
+  useEffect(() => {
+    if (isOpenModal) {
+      document.body.classList.add('overflow-y-hidden')
+    } else {
+      document.body.classList.remove('overflow-y-hidden')
+    }
+  }, [isOpenModal])
+  
   const sidSearch = useId()
   const sidCategories = useId()
   const sidPrice = useId()
@@ -25,7 +33,7 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
       <div className="sidebar-container_mini">
         <h1 className="sidebar-title">Каталог товаров</h1>
 
-          <div className="flex__wrapper">
+        <div className="flex__wrapper">
           {openSearch && (
             <div id={sidSearch} className="search-box">
               <label className="search-wrapper">
@@ -44,22 +52,16 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
             </div>
           )}
           <button className="open-filters__btn" onClick={() => setIsOpenModal(true)} />
-          </div>
-
+        </div>
       </div>
-      <div className="sidebar-container_modal" style={{display: `${isOpenModal ? "block" : "none"}`}}>
+      <div className="sidebar-container_modal" style={{ display: `${isOpenModal ? 'block' : 'none'}` }}>
         <div className="flex__modal">
-        <h1 className="sidebar-title">Фильтры</h1>
-        <button className='close__modal' onClick={() => setIsOpenModal(false)}></button>
+          <h1 className="sidebar-title">Фильтры</h1>
+          <button className="close__modal" onClick={() => setIsOpenModal(false)}></button>
         </div>
 
         <section className="sidebar-section-large">
-          <button
-            className="accordion-trigger"
-            aria-expanded={openPrice}
-            aria-controls={sidPrice}
-            onClick={() => setOpenPrice((v) => !v)}
-          >
+          <button className="accordion-trigger" aria-expanded={openPrice} aria-controls={sidPrice} onClick={() => setOpenPrice((v) => !v)}>
             Цена
             <Chevron open={openPrice} />
           </button>
@@ -76,36 +78,36 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
 
               <div className="price-inputs-row">
                 <div className="input_wrapper">
-                <input
-                  type="number"
-                  inputMode="numeric"
-                  min={0}
-                  placeholder="От"
-                  className="sidebar-input input-half"
-                  value={value.priceFrom ?? ''}
-                  onChange={(e) =>
-                    onChange({
-                      ...value,
-                      priceFrom: e.target.value ? Number(e.target.value) : undefined,
-                    })
-                  }
-                />
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    placeholder="От"
+                    className="sidebar-input input-half"
+                    value={value.priceFrom ?? ''}
+                    onChange={(e) =>
+                      onChange({
+                        ...value,
+                        priceFrom: e.target.value ? Number(e.target.value) : undefined,
+                      })
+                    }
+                  />
                 </div>
                 <div className="input_wrapper">
-                <input
-                  type="number"
-                  inputMode="numeric"
-                  min={0}
-                  placeholder="До"
-                  className="sidebar-input input-half"
-                  value={value.priceTo ?? ''}
-                  onChange={(e) =>
-                    onChange({
-                      ...value,
-                      priceTo: e.target.value ? Number(e.target.value) : undefined,
-                    })
-                  }
-                />
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    placeholder="До"
+                    className="sidebar-input input-half"
+                    value={value.priceTo ?? ''}
+                    onChange={(e) =>
+                      onChange({
+                        ...value,
+                        priceTo: e.target.value ? Number(e.target.value) : undefined,
+                      })
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -113,12 +115,7 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
         </section>
 
         <section className="sidebar-section">
-          <button
-            className="accordion-trigger"
-            aria-expanded={openSearch}
-            aria-controls={sidSearch}
-            onClick={() => setOpenSearch((v) => !v)}
-          >
+          <button className="accordion-trigger" aria-expanded={openSearch} aria-controls={sidSearch} onClick={() => setOpenSearch((v) => !v)}>
             Поиск с полем ввода
             <Chevron open={openSearch} />
           </button>
@@ -170,11 +167,7 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
           )}
         </section>
 
-        <button
-          type="button"
-          onClick={onReset}
-          className="reset-filters-btn"
-        >
+        <button type="button" onClick={onReset} className="reset-filters-btn">
           Очистить фильтры
         </button>
       </div>
@@ -183,12 +176,7 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
         <h1 className="sidebar-title">Каталог товаров</h1>
 
         <section className="sidebar-section-large">
-          <button
-            className="accordion-trigger"
-            aria-expanded={openPrice}
-            aria-controls={sidPrice}
-            onClick={() => setOpenPrice((v) => !v)}
-          >
+          <button className="accordion-trigger" aria-expanded={openPrice} aria-controls={sidPrice} onClick={() => setOpenPrice((v) => !v)}>
             Цена
             <Chevron open={openPrice} />
           </button>
@@ -205,36 +193,36 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
 
               <div className="price-inputs-row">
                 <div className="input_wrapper">
-                <input
-                  type="number"
-                  inputMode="numeric"
-                  min={0}
-                  placeholder="От"
-                  className="sidebar-input input-half"
-                  value={value.priceFrom ?? ''}
-                  onChange={(e) =>
-                    onChange({
-                      ...value,
-                      priceFrom: e.target.value ? Number(e.target.value) : undefined,
-                    })
-                  }
-                />
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    placeholder="От"
+                    className="sidebar-input input-half"
+                    value={value.priceFrom ?? ''}
+                    onChange={(e) =>
+                      onChange({
+                        ...value,
+                        priceFrom: e.target.value ? Number(e.target.value) : undefined,
+                      })
+                    }
+                  />
                 </div>
                 <div className="input_wrapper">
-                <input
-                  type="number"
-                  inputMode="numeric"
-                  min={0}
-                  placeholder="До"
-                  className="sidebar-input input-half"
-                  value={value.priceTo ?? ''}
-                  onChange={(e) =>
-                    onChange({
-                      ...value,
-                      priceTo: e.target.value ? Number(e.target.value) : undefined,
-                    })
-                  }
-                />
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    min={0}
+                    placeholder="До"
+                    className="sidebar-input input-half"
+                    value={value.priceTo ?? ''}
+                    onChange={(e) =>
+                      onChange({
+                        ...value,
+                        priceTo: e.target.value ? Number(e.target.value) : undefined,
+                      })
+                    }
+                  />
                 </div>
               </div>
             </div>
@@ -242,12 +230,7 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
         </section>
 
         <section className="sidebar-section">
-          <button
-            className="accordion-trigger"
-            aria-expanded={openSearch}
-            aria-controls={sidSearch}
-            onClick={() => setOpenSearch((v) => !v)}
-          >
+          <button className="accordion-trigger" aria-expanded={openSearch} aria-controls={sidSearch} onClick={() => setOpenSearch((v) => !v)}>
             Поиск с полем ввода
             <Chevron open={openSearch} />
           </button>
@@ -299,11 +282,7 @@ export function FilterSidebar({ value, onChange, onReset }: IFilterSidebarProps)
           )}
         </section>
 
-        <button
-          type="button"
-          onClick={onReset}
-          className="reset-filters-btn"
-        >
+        <button type="button" onClick={onReset} className="reset-filters-btn">
           Очистить фильтры
         </button>
       </aside>
