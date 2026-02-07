@@ -6,3 +6,48 @@
 .header__btn:hover {
   filter: brightness(0);
 }
+
+.close__modal {
+  background-image: url('/public/close.svg');
+  width: 24px;
+  height: 24px;
+  transition: 0.3s;
+}
+
+.close__modal:hover {
+  filter: brightness(0);
+}
+
+.Modal {
+  position: absolute;
+  z-index: 1050;
+  background-color: #fff;
+  padding: 40px;
+  top: 20vh;
+  left: 50%;
+  max-width: 480px;
+  width: 100%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+}
+
+.password-forgot__link {
+  color: #0075b1;
+  font-size: 14px;
+}
+
+.password-forgot__link:hover {
+  text-decoration: underline;
+}
+
+.AuthModal__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.AuthModal__title h3 {
+  font-size: 18px;
+  font-weight: 600;
+}

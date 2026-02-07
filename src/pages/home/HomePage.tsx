@@ -7,6 +7,7 @@ import { Feedback } from '@widgets/feedback'
 import { Footer } from '@widgets/footer'
 import { Header } from '@widgets/header'
 import { Hero } from '@widgets/hero'
+import Modals from '@widgets/modals/ui/Modals'
 import { News } from '@widgets/news'
 import { Popular } from '@widgets/popular'
 import { useState } from 'react'
@@ -22,6 +23,7 @@ export default function HomePage() {
 
   return (
     <>
+    <Modals />
       <Header />
       <Hero />
       <Discount />
