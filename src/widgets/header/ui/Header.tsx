@@ -1,10 +1,11 @@
 import { APP_PATHS } from '@shared/config'
-import { Logo } from '@shared/ui'
+import { Cart, Logo, Profile } from '@shared/ui'
 import { Menu, SearchIcon, X } from 'lucide-react'
 import { useId, useState } from 'react'
 import { Link } from 'react-router'
 import { linkMap, PHONE_NUMBER } from '../config'
 import type { ICatalogFilters } from '@pages/catalog/model'
+import '../css/Header.css'
 
 export default function Header() {
   const sidSearch = useId()
@@ -24,115 +25,127 @@ export default function Header() {
   }
 
   return (
-    <header className="flex flex-col bg-white mb-3 max-w-[1442px] mx-auto relative px-10">
-      <div className="hidden md:flex justify-between items-center py-2 px-4 border-b border-gray-200">
-        <p className="text-grey-normal text-sm">Ваш город: Челябинск</p>
+    <header className="header">
+      {/* Desktop Top Bar */}
+      <div className="header__top-bar">
+        <p className="header__city">Ваш город: Челябинск</p>
 
-        <nav className="flex space-x-6">
+        <nav className="header__nav">
           {linkMap.map((link) => (
-            <Link key={link.href} className="text-grey-medium text-sm transition-colors hover:text-[#006598]" to={link.href}>
+            <Link key={link.href} className="header__nav-link" to={link.href}>
               {link.text}
             </Link>
           ))}
         </nav>
 
-        <Link to="#" className="text-grey-medium text-sm transition-colors">
+        <Link to="#" className="header__phone">
           {PHONE_NUMBER}
         </Link>
       </div>
 
-      <div className="hidden md:flex items-center py-4 px-8 flex-wrap">
+      {/* Desktop Main Header */}
+      <div className="header__main">
         <Logo />
 
-        <div className="flex items-center gap-4 flex-1 max-w-3xl ml-20">
-          <Link
-            to={APP_PATHS.CATALOG}
-            className="bg-[#0075B1] transition-colors duration-150 hover:bg-[#2d7da5] rounded-[6px] px-4 py-3 text-white flex items-center gap-2 whitespace-nowrap"
-          >
-            <Menu className="w-5 h-5" />
+        <div className="header__actions">
+          <Link to={APP_PATHS.CATALOG} className="header__catalog-btn">
+            <Menu className="header__icon" />
             Каталог
           </Link>
 
-          <div className="flex-1">
+          <div className="header__search-wrapper">
             <div id={sidSearch}>
-              <label className="relative block">
-                <span className="sr-only">Поиск</span>
+              <label className="header__search-label">
+                <span className="header__sr-only">Поиск</span>
                 <input
                   type="search"
-                  className="w-full h-[48px] rounded-lg bg-[#F1F1F1] pl-12 pr-4 text-base text-[#141414] placeholder-[#929292] border border-transparent focus:border-[#0075B1] focus:outline-none"
+                  className="header__search-input"
                   placeholder="Поиск"
                   value={filters.q || ''}
                   onChange={(e) => handleSearchChange(e.target.value)}
                 />
-                <span className="absolute left-4 top-1/2 -translate-y-1/2">
-                  <SearchIcon className="w-5 h-5 text-[#929292]" />
+                <span className="header__search-icon-container">
+                  <SearchIcon className="header__search-icon" />
                 </span>
               </label>
             </div>
           </div>
         </div>
+        <div className="header__btns">
+          <Cart />
+          <Profile />
+        </div>
       </div>
 
-      <div className="flex items-center justify-between py-3 px-4 border-b border-gray-200 md:hidden">
+      {/* Mobile Header Bar */}
+      <div className="header__mobile-bar">
         <Logo />
-        <button type="button" className="p-2" onClick={() => setIsMobileMenuOpen(true)} aria-label="Открыть меню">
-          <Menu className="w-7 h-7 text-[#4b4b4b]" />
+        <button 
+          type="button" 
+          className="header__mobile-toggle" 
+          onClick={() => setIsMobileMenuOpen(true)} 
+          aria-label="Открыть меню"
+        >
+          <Menu className="header__mobile-menu-icon" />
         </button>
       </div>
 
+      {/* Mobile Overlay */}
       {isMobileMenuOpen && (
         <button
           type="button"
           aria-label="Закрыть меню"
-          className="fixed inset-0 z-40 bg-black/40 md:hidden"
+          className="header__mobile-overlay"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
 
-      <div
-        className={`fixed inset-y-0 right-0 z-50 w-[80%] max-w-[360px] bg-white shadow-xl md:hidden transform transition-transform duration-300 ease-out ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
-          <span className="text-sm text-grey-normal">Ваш город: Челябинск</span>
-          <button type="button" className="p-1" onClick={() => setIsMobileMenuOpen(false)} aria-label="Закрыть меню">
-            <X className="w-6 h-6" />
+      {/* Mobile Side Menu */}
+      <div className={`header__mobile-drawer ${isMobileMenuOpen ? 'is-open' : ''}`}>
+        <div className="header__drawer-top">
+          <span className="header__city">Ваш город: Челябинск</span>
+          <button 
+            type="button" 
+            className="header__drawer-close" 
+            onClick={() => setIsMobileMenuOpen(false)} 
+            aria-label="Закрыть меню"
+          >
+            <X className="header__drawer-close-icon" />
           </button>
         </div>
 
-        <div className="flex flex-col gap-4 px-4 py-4">
+        <div className="header__drawer-content">
           <Link
             to={APP_PATHS.CATALOG}
-            className="bg-[#0075B1] transition-colors duration-150 hover:bg-[#2d7da5] rounded-[6px] px-4 py-3 text-white flex items-center gap-2"
+            className="header__catalog-btn"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            <Menu className="w-5 h-5" />
+            <Menu className="header__icon" />
             Каталог
           </Link>
 
           <div id={`${sidSearch}-mobile`}>
-            <label className="relative block">
-              <span className="sr-only">Поиск</span>
+            <label className="header__search-label">
+              <span className="header__sr-only">Поиск</span>
               <input
                 type="search"
-                className="w-full h-[48px] rounded-lg bg-[#F1F1F1] pl-12 pr-4 text-base text-[#141414] placeholder-[#929292] border border-transparent focus:border-[#0075B1] focus:outline-none"
+                className="header__search-input"
                 placeholder="Поиск"
                 value={filters.q || ''}
                 onChange={(e) => handleSearchChange(e.target.value)}
               />
-              <span className="absolute left-4 top-1/2 -translate-y-1/2">
-                <SearchIcon className="w-5 h-5 text-[#929292]" />
+              <span className="header__search-icon-container">
+                <SearchIcon className="header__search-icon" />
               </span>
             </label>
           </div>
 
-          <nav className="flex flex-col gap-3 mt-2">
+          <nav className="header__mobile-nav">
             {linkMap.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-grey-medium text-base transition-colors hover:text-[#006598]"
+                className="header__mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.text}
@@ -142,7 +155,7 @@ export default function Header() {
 
           <Link
             to="#"
-            className="mt-4 text-lg font-medium text-grey-medium transition-colors hover:text-[#006598]"
+            className="header__mobile-phone"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             {PHONE_NUMBER}

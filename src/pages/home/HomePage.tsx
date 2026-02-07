@@ -1,5 +1,7 @@
+import { BRANDS } from '@pages/catalog/config/brands'
 import type { IProduct } from '@pages/catalog/model'
 import { OrderModal } from '@pages/order'
+import Brands from '@widgets/brands/ui/Brands'
 import { Discount } from '@widgets/discount'
 import { Feedback } from '@widgets/feedback'
 import { Footer } from '@widgets/footer'
@@ -25,6 +27,7 @@ export default function HomePage() {
       <Discount />
       <Popular onBuy={handleBuy} />
       <Feedback />
+      <Brands brands={BRANDS} />
       <News />
       <Footer />
 

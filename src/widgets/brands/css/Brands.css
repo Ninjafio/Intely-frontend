@@ -1,0 +1,59 @@
+.car-brands__wrapper {
+  padding: 40px;
+}
+
+.car-brands-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-width: 1360px;
+  margin: auto;
+}
+
+.car-brands-container h2 {
+  color: #000000;
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+
+.brands-grid {
+  display: grid;
+  /* Adjust grid-template-columns based on how many columns you want */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.brand-group {
+  /* Ensures groups stay under their letter */
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.group-letter {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  line-height: 20px;
+  width: 18px;
+}
+
+.brand-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.brand-item {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #555;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.brand-item:hover {
+  color: #000000;
+}
