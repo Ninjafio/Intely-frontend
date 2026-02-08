@@ -1,4 +1,4 @@
-export const BRANDS = [
+export const BRANDS: string[] = [
   'ABARTH',
   'Alfa Romeo',
   'Audi',

@@ -1,4 +1,4 @@
-import { BRANDS } from '@pages/catalog/config/brands'
+import { BRANDS } from './api/mock'
 import type { IProduct } from '@pages/catalog/model'
 import { OrderModal } from '@pages/order'
 import Brands from '@widgets/brands/ui/Brands'

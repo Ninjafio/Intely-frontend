@@ -9,6 +9,9 @@ import type { IProduct } from '@pages/catalog/model'
 import { createReview, useProductQuery, useRelatedProductsQuery, useReviewsQuery } from './api/queries'
 import type { Tab } from './model'
 import { tabs } from './config'
+import Modals from '@widgets/modals/ui/Modals'
+import { $Cart, setCart } from '../../store/index'
+import { useUnit } from 'effector-react'
 
 const NO_IMAGE = '/no-image.png'
 
@@ -28,6 +31,7 @@ export default function ItemPage() {
 
   const [isOrderOpen, setIsOrderOpen] = useState(false)
   const [orderProduct, setOrderProduct] = useState<IProduct | null>(null)
+  const cart = useUnit($Cart);
 
   useEffect(() => {
     if (product?.images?.length) {
@@ -42,9 +46,8 @@ export default function ItemPage() {
     setIsOrderOpen(true)
   }
 
-  const handleBuyNow = () => {
-    if (!product) return
-    openOrderModal(product)
+  const handleBuyNow = (p: IProduct) => {
+    setCart([...cart, p])
   }
 
   const handleSubmitReview = (e: React.FormEvent) => {
@@ -126,6 +129,7 @@ export default function ItemPage() {
 
   return (
     <>
+    <Modals />
       <Header />
 
       <main className="bg-grey-100 px-4 md:px-10 pb-10">
@@ -210,11 +214,10 @@ export default function ItemPage() {
 
               <button
                 type="button"
-                onClick={handleBuyNow}
+                onClick={() => handleBuyNow(product)}
                 className="inline-flex items-center gap-2 bg-[#0075B1] hover:bg-[#2a4b5c] text-white px-4 py-3 rounded-[6px] text-sm font-medium transition-colors w-fit"
               >
-                Купить сейчас
-                <ArrowRight className="w-4 h-4" />
+                Добавить в корзину
               </button>
             </div>
           </section>

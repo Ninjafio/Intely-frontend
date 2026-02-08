@@ -216,7 +216,7 @@
 @media (max-width: 767px) {
   .search-box {
     margin-top: 0px;
-    width: 80%;
+    width: 85%;
   }
   .sidebar-container {
     display: none;
@@ -230,5 +230,8 @@
   .sidebar-input {
     background-color: #fff;
     padding-right: 0px;
+  }
+  .flex__wrapper {
+    justify-content: space-between;
   }
 }

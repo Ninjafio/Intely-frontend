@@ -3,4 +3,5 @@ export const APP_PATHS = {
   CATALOG: '/catalog',
   ITEM: '/item/:id',
   ORDER: '/order',
+  CART: '/cart',
 } as const;

@@ -4,6 +4,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { CatalogPage } from '@pages/catalog'
 import { ItemPage } from '@pages/item'
 import { HomePage } from '@pages/home'
+import CartPage from '@pages/cart/CartPage'
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: APP_PATHS.CATALOG, element: <CatalogPage /> },
       { path: APP_PATHS.ITEM, element: <ItemPage /> },
+      { path: APP_PATHS.CART, element: <CartPage /> },
     ],
   },
 ])

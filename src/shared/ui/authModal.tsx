@@ -1,5 +1,4 @@
 import { setActiveModal } from '../../store'
-import '../css/authModal.css'
 
 const AuthModal = () => {
 
@@ -24,13 +23,17 @@ const AuthModal = () => {
     </div>
         <input
           type="submit"
-          className="h-[44px] bg-[#007BC1] text-white rounded-[8px] font-medium w-full hover:bg-[#0267a3] transition"
+          className="h-[44px] bg-[#007BC1] text-white rounded-[8px] font-medium w-full hover:bg-[#0267a3] transition cursor-[pointer]"
           value="Вход"
         />
       </form>
       <a className="password-forgot__link" href="#">
         Забыли пароль?
-      </a>
+      </a><br/>
+      <p style={{textAlign: "center", marginTop: 16}}>Впервые здесь? <a className="password-forgot__link" href="#">
+        Регистрация
+      </a></p>
+      
     </div>
   )
 }
