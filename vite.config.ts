@@ -13,6 +13,7 @@ export default defineConfig({
       '@features': '/src/features',
       '@entities': '/src/entities',
       '@shared': '/src/shared',
+      '@store': '/src/store',
       '@': path.resolve(__dirname, './src'),
     },
     extensions: ['.cjs', '.mjs', '.js', '.jsx', '.cts', '.mts', '.ts', '.tsx', '.json', '.css'],

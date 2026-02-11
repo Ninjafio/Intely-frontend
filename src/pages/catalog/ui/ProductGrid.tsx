@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { renderPrice } from '../lib'
 import type { ProductGridProps } from '../model'
+import { addToCart } from '@store/cart'
 import './css/ProductGrid.css'
 
 const NO_IMAGE = '/no-image.png'
@@ -50,7 +51,24 @@ export function ProductGrid({ products, loading, onBuy }: ProductGridProps) {
                   </div>
 
                   <div className="product-actions">
-                    <button type="button" className="buy-button" aria-label="Заказать товар" onClick={() => onBuy?.(p)}>
+                    <button
+                      type="button"
+                      className="buy-button"
+                      aria-label="Заказать товар"
+                      onClick={() => {
+                        addToCart({
+                          id: p.id,
+                          title: p.title,
+                          brand: p.brand,
+                          article: p.article,
+                          price: p.price,
+                          oldPrice: p.oldPrice,
+                          imageUrl: p.imageUrl,
+                          qty: 1,
+                        })
+                        onBuy?.(p)
+                      }}
+                    >
                       Купить
                     </button>
                   </div>

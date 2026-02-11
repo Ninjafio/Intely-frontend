@@ -5,7 +5,7 @@ import { ProductGrid } from './ui/ProductGrid'
 import type { ICatalogFilters, IProduct } from './model'
 import { Header } from '@widgets/header'
 import { Footer } from '@widgets/footer'
-import { OrderModal } from '@pages/order'
+import { addToCart } from '@store/cart'
 import './ui/css/CatalogPage.css'
 
 const INITIAL_FILTERS: ICatalogFilters = {
@@ -19,12 +19,19 @@ export default function CatalogPage() {
   const [filters, setFilters] = useState<ICatalogFilters>(INITIAL_FILTERS)
   const { data = [], isLoading } = useProductsQuery(filters)
 
-  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null)
-  const [isOrderOpen, setIsOrderOpen] = useState(false)
+// заказ через корзину, локальные стейты пока не используются
 
   const handleBuy = (product: IProduct) => {
-    setSelectedProduct(product)
-    setIsOrderOpen(true)
+    addToCart({
+      id: product.id,
+      title: product.title,
+      brand: product.brand,
+      article: product.article,
+      price: product.price,
+      oldPrice: product.oldPrice,
+      imageUrl: product.imageUrl,
+      qty: 1,
+    })
   }
 
   return (
@@ -42,13 +49,7 @@ export default function CatalogPage() {
           </div>
         </div>
       </main>
-      <Footer />
-
-      <OrderModal 
-        isOpen={isOrderOpen} 
-        product={selectedProduct} 
-        onClose={() => setIsOrderOpen(false)} 
-      />
+	<Footer />
     </>
   )
 }
