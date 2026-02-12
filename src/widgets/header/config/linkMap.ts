@@ -2,12 +2,12 @@ import type { ILinkMap } from "../model";
 
 export const linkMap: ILinkMap[] = [
   {
-    text: 'О компании',
-    href: '#',
+    text: 'Акции',
+    href: 'stocks',
   },
   {
-    text: 'Доставка',
-    href: '#',
+    text: 'О компании',
+    href: 'about',
   },
   {
     text: 'Адреса',
@@ -15,10 +15,6 @@ export const linkMap: ILinkMap[] = [
   },
   {
     text: 'Контакты',
-    href: '#',
-  },
-  {
-    text: ' О компании',
     href: '#',
   },
 ]

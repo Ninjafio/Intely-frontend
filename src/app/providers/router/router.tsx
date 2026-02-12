@@ -8,6 +8,8 @@ import { ProfilePage } from '@pages/profile'
 import { VinSearchPage } from '@pages/cars/vin'
 import { MakeFindPage } from '@pages/cars/find'
 import { CartPage } from '@pages/cart'
+import { AboutPage } from '@pages/about'
+import { StocksPage } from '@pages/stocks'
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +23,8 @@ export const router = createBrowserRouter([
       { path: '/cars/vin', element: <VinSearchPage /> },
       { path: '/cars/find', element: <MakeFindPage /> },
       { path: APP_PATHS.CART, element: <CartPage /> },
+      { path: APP_PATHS.ABOUT, element: <AboutPage /> },
+      { path: APP_PATHS.STOCKS, element: <StocksPage /> },
     ],
   },
 ])

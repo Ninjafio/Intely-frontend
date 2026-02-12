@@ -32,7 +32,7 @@ export default function Header() {
 
 				<nav className="header__nav">
 					{linkMap.map((link) => (
-						<Link key={link.href} className="header__nav-link" to={link.href}>
+						<Link key={link.href} className="header__nav-link" replace={true} to={"/" + link.href}>
 							{link.text}
 						</Link>
 					))}
