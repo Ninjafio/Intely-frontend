@@ -30,7 +30,7 @@ export default function Profile() {
 
   return (
     <div className="relative">
-      <img className="header__btn" src="/Profile.svg" alt="Профиль" onClick={onClick} />
+      <img className="header__btn profile_hover" src="/Profile.svg" alt="Профиль" onClick={onClick} />
       {open && (
         <div className="absolute right-0 mt-2 w-64 rounded-2xl border border-gray-200 bg-white shadow-xl p-4 z-30 sm:w-72">
           <div className="text-sm text-gray-500 mb-2">{me ? me.email : "Загрузка…"}</div>

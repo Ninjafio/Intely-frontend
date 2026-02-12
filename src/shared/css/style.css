@@ -4,7 +4,15 @@
   position: relative;
 }
 
-.header__btn:hover {
+.header__btn img {
+  transition: 0.3s;
+}
+
+.header__btn img:hover {
+  filter: brightness(0);
+}
+
+.profile_hover:hover {
   filter: brightness(0);
 }
 
