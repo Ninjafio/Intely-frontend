@@ -1,0 +1,26 @@
+.StocksPage {
+  padding: 40px;
+  max-width: 1360px;
+  margin: auto;
+}
+
+.StocksPage h1 {
+  margin-bottom: 45px;
+  font-size: 24px;
+  color: rgba(11, 13, 13, 1);
+  font-weight: 500;
+}
+
+.stocks__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
+  gap: 20px;
+  row-gap: 20px;
+  min-height: 510px;
+}
+
+@media (max-width: 700px) {
+  .stocks__container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}

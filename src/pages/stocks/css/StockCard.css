@@ -1,0 +1,39 @@
+.StockCard {
+  padding: 20px;
+  background-color: rgba(241, 241, 241, 1);
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  padding-bottom: 50px;
+  max-height: 230px;
+}
+
+.StockCard_subtitle {
+  margin-bottom: 8px;
+  color: rgba(112, 112, 112, 1);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.StockCard_title {
+  margin-bottom: 12px;
+  color: rgba(49, 49, 49, 1);
+  font-size: 24px;
+  font-weight: 600;
+  max-width: 310px;
+}
+
+.StockCard_description {
+  color: rgba(112, 112, 112, 1);
+  font-size: 12px;
+  font-weight: 400;
+  max-width: 276px;
+}
+
+@media (max-width: 700px) {
+  .StockCard {
+    max-height: none;
+    padding-bottom: 170px;
+  }
+}

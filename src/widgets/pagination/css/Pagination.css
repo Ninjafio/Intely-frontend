@@ -1,0 +1,43 @@
+.Pagination {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.Pagination_left {
+  height: 44px;
+  width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.Pagination_right {
+  height: 44px;
+  width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pagination_number {
+  height: 44px;
+  width: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.numbers_container {
+  display: flex;
+  gap: 12px;
+}
